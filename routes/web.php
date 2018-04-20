@@ -14,9 +14,6 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/example', function () {
-    return view('ads.example');
-});
 
 Route::resource('ads','AdController');
 Route::post('/ads/{id}', 'AdController@update');
