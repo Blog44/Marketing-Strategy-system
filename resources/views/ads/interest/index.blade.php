@@ -39,7 +39,7 @@
             <tr>
                 <th>SN</th>
                 <th>Interest</th>
-
+                <th>Actions</th>
             </tr>
             </thead>
 
@@ -52,11 +52,12 @@
 
 
                     <td>
-
                         <a href="{{action('InterestController@edit', $int->id)}}" class="btn btn-primary a-btn-slide-text">
                             <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
                             <span><strong>Edit</strong></span>
                         </a>
+                    </td>
+                    <td>
                         <form method="POST" action="{{route('interest.destroy', $int->id)}}">
                             {{method_field('DELETE')}}
                             @csrf
@@ -64,7 +65,6 @@
                                 <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
                                 <span><strong>Delete</strong></span></button>
                         </form>
-
                     </td>
 
                 </tr>

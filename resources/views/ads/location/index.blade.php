@@ -47,11 +47,8 @@
             <tbody>
             @foreach($location as $loc)
                 <tr>
-
                     <td>{{$loc->id}}</td>
                     <td>{{$loc->location_name}}</td>
-
-
                     <td>
                         <a href="{{action('LocationController@edit', $loc->id)}}" class="btn btn-primary a-btn-slide-text">
                             <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>

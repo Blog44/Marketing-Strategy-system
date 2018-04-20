@@ -2,7 +2,7 @@
 
 <html>
 <head>
-    <title>Create Location </title>
+    <title>Create Product </title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -13,7 +13,7 @@
 
 <div class="container">
 
-    <h1 style="text-align: center;margin-top:30px;">Location</h1>
+    <h1 style="text-align: center;margin-top:30px;">Product</h1>
     <a href="{{action('LocationController@index')}}" class="btn btn-primary a-btn-slide-text">
         <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
         <span><strong>View</strong></span>

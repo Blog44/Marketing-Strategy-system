@@ -42,7 +42,7 @@
                 <th>Interest field</th>
                 <th>Location</th>
                 <th>Budget</th>
-                <th>Options</th>
+                <th>Actions</th>
             </tr>
             </thead>
 
