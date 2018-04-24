@@ -24,6 +24,10 @@
 <div class="container">
     <h1 style="text-align: center;margin-top:30px;">Description of Advertisement</h1>
     <hr>
+    <a href="{{route('ads.index')}}" class="btn btn-primary a-btn-slide-text">
+        <span class="glyphicon glyphicon" aria-hidden="true"></span>
+        <span><strong>Back</strong></span>
+    </a>
     <div class="jumbotron">
         <form  method="POST" action="{{route('ads.update', $ad->id)}}" >
             <div class="row">
@@ -77,7 +81,11 @@
                     </div>
                         <br>
                         <div class="form-group">
-                            <label for="age">Age:</label>
+                            <label for="age">Min Age:</label>
+                            <input type="text" name="age" id="age" class="form-control" value="{{$target->age}}" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="age">Max Age:</label>
                             <input type="text" name="age" id="age" class="form-control" value="{{$target->age}}" required>
                         </div>
                         <div class="form-group">

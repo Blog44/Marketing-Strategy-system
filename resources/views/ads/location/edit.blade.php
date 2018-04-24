@@ -24,25 +24,19 @@
 <div class="container">
 
     <h1 style="text-align: center;margin-top:30px;">Edit Location</h1>
-
     <hr>
-
+    <a href="{{route('location.index')}}" class="btn btn-primary a-btn-slide-text">
+        <span class="glyphicon glyphicon" aria-hidden="true"></span>
+        <span><strong>Back</strong></span>
+    </a>
     <div class="jumbotron">
-
         <form  method="POST" action="{{route('location.update', $loc->id)}}" >
-
             <div class="row">
-
                 @csrf
-
                 <div class="col-sm-4">
-
                     <div class="form-group">
-
                         <label for="location_name"> Location Name:</label>
-
                         <input type="text" name="location_name" id="location_name" class="form-control" value="{{$loc->location_name}}" required>
-
                     </div>
 
                     <br>

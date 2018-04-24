@@ -21,13 +21,13 @@
 <body>
 
 <div class="container">
-
     <h1 style="text-align: center;margin-top:30px;">Edit Interest</h1>
-
     <hr>
-
+    <a href="{{route('interest.index')}}" class="btn btn-primary a-btn-slide-text">
+        <span class="glyphicon glyphicon" aria-hidden="true"></span>
+        <span><strong>Back</strong></span>
+    </a>
     <div class="jumbotron">
-
         <form  method="POST" action="{{route('interest.update', $int->id)}}" >
 
             <div class="row">

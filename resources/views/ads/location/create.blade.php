@@ -12,9 +12,17 @@
 
 <div class="container">
     <h1 style="text-align: center;margin-top:30px;">Location</h1>
+    <a href="{{url('/')}}" class="btn btn-primary a-btn-slide-text">
+        <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+        <span><strong>Home</strong></span>
+    </a>
     <a href="{{action('LocationController@index')}}" class="btn btn-primary a-btn-slide-text">
         <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
         <span><strong>View</strong></span>
+    </a>
+    <a href="{{route('interest.index')}}" class="btn btn-primary a-btn-slide-text">
+        <span class="glyphicon glyphicon" aria-hidden="true"></span>
+        <span><strong>Back</strong></span>
     </a>
     <hr>
     <div class="jumbotron">

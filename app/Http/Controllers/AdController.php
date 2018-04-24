@@ -59,9 +59,10 @@ class AdController extends Controller
     {
         $request->validate([
             'budget'=>'required|integer',
-            'duration'=>'required',
+            'duration'=>'required|integer',
             'gender'=>'required',
-            'age'=>'required|integer',
+            'min_age'=>'required|integer',
+            'max_age'=>'required|integer',
         ]);
         $ad = new Ad();
 
@@ -70,7 +71,6 @@ class AdController extends Controller
         $ad->interest_id=$request->input('interest_id');
         $ad->budget=$request->input('budget');
         $ad->duration=$request->input('duration');
-
         $ad->save();
 
         $ads = DB::table('ads')->select('ads.id')->orderBy('created_at','desc')->first();
@@ -79,8 +79,8 @@ class AdController extends Controller
         $tar->ad_id=$ads->id;
 
         $tar->gender=$request->input('gender');
-        $tar->age=$request->input('age');
-
+        $tar->min_age=$request->input('min_age');
+        $tar->max_age=$request->input('max_age');
         $tar->save();
 
         return redirect()->to('ads');
@@ -101,7 +101,7 @@ class AdController extends Controller
             ->join('interests', 'interests.id', '=', 'ads.interest_id')
             ->join('targets', 'targets.ad_id', '=', 'ads.id')
             ->select('ads.id','products.product_name','products.no_of_order','locations.location_name',
-                'ads.budget','interests.interest_name','ads.duration','targets.gender','targets.age')
+                'ads.budget','interests.interest_name','ads.duration','targets.gender','targets.min_age','targets.max_age')
             ->where('ads.id', $id)
             ->get();
 
@@ -151,7 +151,8 @@ class AdController extends Controller
 
         $tar = Target::find($id);
         $tar->gender=$request->input('gender');
-        $tar->age=$request->input('age');
+        $tar->min_age=$request->input('min_age');
+        $tar->max_age=$request->input('max_age');
         $tar->save();
 
         $loc= Location::where('id',$ad->location_id)->first();

@@ -13,6 +13,15 @@
     <hr>
     <div class="jumbotron">
         <form  method="POST" action="{{route('ads.store')}}" >
+
+            <a href="{{url('/')}}" class="btn btn-primary a-btn-slide-text">
+                <span class="glyphicon glyphicon" aria-hidden="true"></span>
+                <span><strong>Home</strong></span>
+            </a>
+            <a href="{{route('ads.index')}}" class="btn btn-primary a-btn-slide-text">
+                <span class="glyphicon glyphicon" aria-hidden="true"></span>
+                <span><strong>Back</strong></span>
+            </a>
             <a href="{{action('AdController@index')}}" class="btn btn-primary a-btn-slide-text">
                 <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
                 <span><strong>View List</strong></span>
@@ -31,7 +40,14 @@
                             @endforeach
                         </select>
                     </div><br>
-
+                    <div class="form-group">
+                        <label>Location</label>
+                        <select name="location_id" id="location_id" class="form-control" required>
+                            @foreach($locations as $location)
+                                <option value="{{$location->id}}">{{$location->location_name}}</option>
+                            @endforeach
+                        </select>
+                    </div>
                     <div class="form-group">
                         <label for="budget"> Marketing Budget:</label>
                         <input type="text" name="budget" id="budget" class="form-control" required>
@@ -69,26 +85,19 @@
                             </label>
                         </div>
                     </div><br>
-
-                    <div class="form-group">
-                        <label for="age">Age:</label>
-                        <input type="text" name="age" id="age" class="form-control" required>
-                    </div>
                     <div class="form-group">
                         <label>Interest</label>
-                        <select name="interest_id" id="interest_id" class="form-control" required>
-                            @foreach($interests as $interest)
-                                <option value="{{$interest->id}}">{{$interest->interest_name}}</option>
-                            @endforeach
-                        </select>
+
+                        <select class="form-control interest" name="interest_id" id="interest_id" multiple=""></select>
+
                     </div><br>
                     <div class="form-group">
-                        <label>Location</label>
-                        <select name="location_id" id="location_id" class="form-control" required>
-                            @foreach($locations as $location)
-                                <option value="{{$location->id}}">{{$location->location_name}}</option>
-                            @endforeach
-                        </select>
+                        <label for="min_age">Min Age:</label>
+                        <input type="text" name="min_age" id="min_age" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="maxage">Max Age:</label>
+                        <input type="text" name="max_age" id="max_age" class="form-control" required>
                     </div>
                 </div><!--end of user description -->
             </div>
@@ -103,6 +112,8 @@
 
 <script src="{{asset('js/bootstrap-datetimepicker.js')}}"></script>
 <script src="{{asset('js/custom.js')}}"></script>
+<script src="{{asset('js/get_interest.js')}}"></script>
+<script src="{{asset('https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js')}}"></script>
 </body>
 
 </html></html>

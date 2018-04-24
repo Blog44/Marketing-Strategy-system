@@ -28,7 +28,10 @@
         <span class="glyphicon glyphicon-create" aria-hidden="true"></span>
         <span><strong>Create</strong></span>
     </a>
-
+    <a href="{{url('/')}}" class="btn btn-primary a-btn-slide-text">
+        <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+        <span><strong>Home</strong></span>
+    </a>
 
     <hr>
 

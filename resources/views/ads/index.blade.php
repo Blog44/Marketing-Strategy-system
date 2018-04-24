@@ -10,11 +10,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
-    <link href="{{asset('css/bootstrap-datetimepicker.css')}}" rel="stylesheet">
-
-    <link href="{{asset('css/custom.css')}}" rel="stylesheet">
+    @include('styles.link')
 
 </head>
 
@@ -28,7 +24,10 @@
         <span class="glyphicon glyphicon-create" aria-hidden="true"></span>
         <span><strong>Create</strong></span>
     </a>
-
+    <a href="{{url('/')}}" class="btn btn-primary a-btn-slide-text">
+        <span class="glyphicon glyphicon" aria-hidden="true"></span>
+        <span><strong>Home</strong></span>
+    </a>
 
     <hr>
 

@@ -15,6 +15,14 @@
         <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
         <span><strong>View</strong></span>
     </a>
+    <a href="{{url('/')}}" class="btn btn-primary a-btn-slide-text">
+        <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+        <span><strong>Home</strong></span>
+    </a>
+    <a href="{{route('interest.index')}}" class="btn btn-primary a-btn-slide-text">
+        <span class="glyphicon glyphicon" aria-hidden="true"></span>
+        <span><strong>Back</strong></span>
+    </a>
     <hr>
     <div class="jumbotron">
         <form  method="POST" action="{{route('interest.store')}}" >
