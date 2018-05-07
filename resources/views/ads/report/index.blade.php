@@ -81,12 +81,16 @@
                 </tr>
                 </thead>
 
+                @if(isset($result))
                 <tbody>
                     @foreach($result as $res)
                     <tr>
                         <td>{{$res->id}}</td>
                         <td>{{$res->product_name}}</td>
-                        <td>{{$res->interest_name}}</td>
+                        <td>@foreach($interests[$res->id] as $i)
+                                {{$i->interest_name}},
+                            @endforeach
+                        </td>
                         <td>{{$res->location_name}}</td>
                         <td>{{$res->budget}}</td>
                         <td>{{$res->duration}}</td>
@@ -96,6 +100,7 @@
                     </tr>
                     @endforeach
                 </tbody>
+                    @endif
             </table>
 
         </div>

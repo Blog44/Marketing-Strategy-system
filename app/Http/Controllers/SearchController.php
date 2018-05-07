@@ -21,4 +21,16 @@ class SearchController extends Controller
         return response()->json($data);
 
     }
+
+    public function dataAjaxProduct(Request $request){
+        $data = [];
+        if($request->has('q')){
+            $search = $request->q;
+            $data = DB::table("products")
+                ->select("id","product_name")
+                ->where('product_name','like',"%$search%")
+                ->get();
+        }
+        return response()->json($data);
+    }
 }

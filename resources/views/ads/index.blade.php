@@ -51,7 +51,10 @@
 
                     <td>{{$ad->id}}</td>
                     <td>{{$ad->product_name}}</td>
-                    <td>{{$ad->interest_name}}</td>
+                    <td>@foreach($interests[$ad->id] as $i)
+                            {{$i->interest_name}},
+                            @endforeach
+                    </td>
                     <td>{{$ad->location_name}}</td>
                     <td>{{$ad->budget}}</td>
 

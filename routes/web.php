@@ -16,6 +16,7 @@ Route::get('/', function () {
 });
 
 Route::get('/search-interest','SearchController@dataAjax');
+Route::get('/search-product','SearchController@dataAjaxProduct');
 
 Route::resource('ads','AdController');
 Route::post('/ads/{id}', 'AdController@update');
@@ -38,4 +39,5 @@ Route::get('/report/generate','ReportController@generate');
 Route::get('/report/generate/today','ReportController@today_report');
 Route::get('/report/generate/last_seven','ReportController@last_seven_report');
 Route::get('/report/generate/last_thirty','ReportController@last_thirty_report');
+
 

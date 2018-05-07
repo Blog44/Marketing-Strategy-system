@@ -27,18 +27,22 @@
 
     <div class="jumbotron">
         <div class="x_content">
-            {{Form::open(['url'=>'/report/generate','method'=> 'GET', 'id'=>'demo-form2', 'class'=>'form-horizontal form-label-left', 'data-parsley-validate'])}}
+            {{Form::open(['url'=>'/report/generate','method'=> 'GET', 'id'=>'demo-form2', 'class'=>'create_report form-horizontal form-label-left', 'data-parsley-validate'])}}
 
             <div class="form-group">
-                <div class="">
-                    Date:
-
+                <div>
+                    &nbsp;&nbsp;Date:
                     {{ Form::date('start', null, ['class' => 'date_from has-feedback-left' , 'aria-describedby'=>'inputSuccess2Status4',
                     'data'=> '' , 'placeholder'=>'From' ]) }}
-
                     {{ Form::date('end', null, ['class' => 'date_to date-only has-feedback-left' , 'aria-describedby'=>'inputSuccess2Status4',
-                    'data'=>'', 'placeholder'=>'To' ]) }}
-                    &nbsp; &nbsp;
+                    'data'=>'', 'placeholder'=>'To' ]) }}&nbsp;
+
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <select class="form-control product"  name="product_id" id="product_id"></select>
+                        </div>
+                    </div>&nbsp; &nbsp;
+
                     <button type="submit"  class="btn btn-primary btn-xs">generate report</button>
                     <a href="{{action('ReportController@today_report') }}" class="btn btn-success btn-xs">Today</a>
                     <a href="{{action('ReportController@last_thirty_report') }}" class="btn btn-success btn-xs">last 30 days</a>
@@ -46,27 +50,32 @@
                 </div>
             </div>
             {{Form::close()}}
-            @if(isset($sum))
-            <table class="table">
-                <thead>
-                <tr>
-                    <th>Total number of order</th>
-                    <th>Total budget</th>
-                </tr>
-                </thead>
-                <tbody>
 
+
+            @if(isset($sum))
+                <table class="table">
+                    <thead>
                     <tr>
+                        @if(isset($product))<th>product type</th>@endif
+                        <th>Total number of order</th>
+                        <th>Total budget</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        @if(isset($product))<td>@foreach($product as $p){{$p->product_name}}@endforeach</td> @endif
                         <td>{{$sum['order']}}</td>
                         <td>{{$sum['budget']}}</td>
                     </tr>
-
-                </tbody>
-            </table>
+                    </tbody>
+                </table>
             @endif
-
         </div>
     </div>
 </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="{{asset('js/get_product_report.js')}}"></script>
+<script src="{{asset('https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js')}}"></script>
 </body>
 </html>

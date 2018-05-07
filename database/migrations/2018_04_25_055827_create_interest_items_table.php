@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAdsTable extends Migration
+class CreateInterestItemsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,11 @@ class CreateAdsTable extends Migration
      */
     public function up()
     {
-        Schema::create('ads', function (Blueprint $table) {
+        Schema::create('interest_items', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('product_id');
-            $table->integer('location_id');
-            $table->integer('budget');
-            $table->string('duration');
+            $table->integer('interest_id');
+            $table->integer('ad_id');
             $table->timestamps();
-
         });
     }
 
@@ -31,6 +28,6 @@ class CreateAdsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ads');
+        Schema::dropIfExists('interest_items');
     }
 }

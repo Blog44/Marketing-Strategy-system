@@ -5,20 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     @include('styles.link')
-    <style>
-        .button {
-            background-color: #4CAF50; /* Green */
-            border: none;
-            color: white;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 16px;
-            margin: 4px 2px;
-            cursor: pointer;
-        }
-        .button1 {padding: 10px 24px;}
-    </style>
+
 </head>
 <body>
 <div class="container">
@@ -34,28 +21,35 @@
                 @csrf
                 <div class="col-sm-3">
                     <div class="form-group">
-                        <label for="product_name">Product Name:</label>
-                        <input type="text" name="product_name" id="product_name" class="form-control" value="{{$product->product_name}}" required>
+                        <label>Product Type:</label>
+                        <select name="product_name" id="product_name" class="form-control">
+                            @foreach($product as $pro)
+                                <option {!! ($pro->product_name==$product_name->product_name)?'selected':'' !!}
+                                        value="{{$pro->product_name}}">{{$pro->product_name}}</option>
+                            @endforeach
+                        </select>
                     </div>
                     <br>
+                    <div class="form-group">
+                        <label>Interest </label>
+                        <select type="text" class="form-control interest" name="interest_id[]" multiple required>
+                            @foreach($interest as $key => $val)
+                                <option value="{{$key}}" selected>{{$val}}</option>
+                            @endforeach
+                        </select>
+
+                    </div><br>
                     <div class="form-group">
                         <label for="budget">Budget:</label>
                         <input type="text" name="budget" id="budget" class="form-control" value="{{$ad->budget}}" required>
                     </div>
                     <br>
-                <!--<div class="form-group">
-                        <label for="formField05">Advertisement date</label>
-                        {{ Form::text('date_of_delivery', null, ['class' => 'date form-control has-feedback-left' , 'aria-describedby'=>'inputSuccess2Status4','id'=>'datepick-all','placeholder' => 'Click here for date']) }}
-                        </div>
-                        <br> -->
+
                     <div class="form-group">
                         <label for="duration">Duration:</label>
                         <input type="text" name="duration" id="duration" class="form-control" value="{{$ad->duration}}" required>
                     </div>
-                    <div class="form-group">
-                        <label for="no_of_order">Number of order:</label>
-                        <input type="text" name="no_of_order" id="no_of_order" class="form-control" value="{{$product->no_of_order}}" required>
-                    </div>
+
                     <div class="form-group">
                         <input type="submit" class="button button1" value="Update" required>
                     </div>
@@ -81,17 +75,14 @@
                     </div>
                         <br>
                         <div class="form-group">
-                            <label for="age">Min Age:</label>
-                            <input type="text" name="age" id="age" class="form-control" value="{{$target->age}}" required>
+                            <label for="min_age">Min Age:</label>
+                            <input type="text" name="min_age" id="min_age" class="form-control" value="{{$target->min_age}}" required>
                         </div>
                         <div class="form-group">
-                            <label for="age">Max Age:</label>
-                            <input type="text" name="age" id="age" class="form-control" value="{{$target->age}}" required>
+                            <label for="max_age">Max Age:</label>
+                            <input type="text" name="max_age" id="max_age" class="form-control" value="{{$target->max_age}}" required>
                         </div>
-                        <div class="form-group">
-                            <label for="interest_name">Interest Name</label>
-                            <input type="text" name="interest_name" id="interest_name" class="form-control" value="{{$interest->interest_name}}" required>
-                        </div>
+
                         <br>
                         <div class="form-group">
                             <label>Target Location:</label>
@@ -112,6 +103,9 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="{{asset('js/bootstrap-datetimepicker.js')}}"></script>
 <script src="{{asset('js/custom.js')}}"></script>
+<script src="{{asset('js/get_interest.js')}}"></script>
+<script src="{{asset('https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js')}}"></script>
+
 </body>
 
 

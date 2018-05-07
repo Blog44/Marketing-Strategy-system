@@ -88,7 +88,7 @@
                     <div class="form-group">
                         <label>Interest</label>
 
-                        <select class="form-control interest" name="interest_id" id="interest_id" multiple=""></select>
+                        <select class="form-control interest" name="interest_id[]" id="interest_id" multiple=""></select>
 
                     </div><br>
                     <div class="form-group">
